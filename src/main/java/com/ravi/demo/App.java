@@ -9,24 +9,7 @@ public class App
     public static void main( String[] args ) throws InterruptedException
     {		
     	Counter cnt = new  Counter();
-    	
-        Thread t1 = new Thread(()->
-	    {
-				for(int i = 0; i < 1000; i ++){
-					cnt.increment();
-				}	        	
-	    },"Thread Name");
-        
-        Thread t2 = new Thread(()->
-	    {
-				for(int i = 0; i < 1000; i ++){
-					cnt.increment();
-				}	        	
-	    });
-        t1.start();
-        t2.start();    
-        t1.join();
-        t2.join();        
+    	cnt.increment();
         System.out.println( cnt.count );
     }
 }
@@ -34,7 +17,7 @@ public class App
 class Counter
 {
 	int count = 0;
-	public synchronized void increment() {
+	public  void increment() {
 		count++;
 	}	
 }
